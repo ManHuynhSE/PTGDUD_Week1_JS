@@ -1,0 +1,50 @@
+<body>
+    <h1>Mark</h1>
+    <input type="text" value="78" id="mark_mass">
+    <input type="text" value="1.69" id="mark_height">
+    <h1>John</h1>
+    <input type="text" value="92" id="john_mass">
+    <input type="text" value="1.95" id="john_height">
+    <button id="cal">Calculate</button>
+    <script>
+        var Mark ={
+           full_name:"Mark Miller",
+           mass : parseInt(document.getElementById("mark_mass").value),
+           height : parseFloat(document.getElementById("mark_height").value),
+           bmi:0,
+           calc(){
+           return bmi= this.mass/this.height**2
+           }
+        }
+
+        var John ={
+           full_name:"John Smith)",
+           mass : parseInt(document.getElementById("john_mass").value),
+           height : parseFloat(document.getElementById("john_height").value),
+           bmi:0,
+            calc(){
+            return bmi= this.mass/this.height**2
+           }
+        }
+
+        console.log(Mark);
+        console.log(John);
+        
+        
+
+        console.log(Mark.calc());
+        console.log(John.calc());
+        
+        
+
+        var check = Mark.calc() > John.calc();
+        if(check) {
+            console.log(`${Mark.full_name} BMI (${Mark.calc()}) is higher than ${John.full_name} (${John.calc()})!`)
+        }
+        else {
+            console.log(`${John.full_name} BMI (${John.calc()}) is higher than ${Mark.full_name} (${Mark.calc()})!`)
+        }
+        
+        
+    </script>
+</body>

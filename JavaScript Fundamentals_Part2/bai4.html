@@ -1,0 +1,35 @@
+<body>
+
+    <!-- <input id="bill" value='275' type="text">
+    <button id="cal">Calculate</button> -->
+    <script>
+       
+        // // cal.onclick = () =>{
+        // var bill= 100;
+        
+        var calTip = (b) =>{
+            return b>=50&&b<=300?b*15/100:b*20/100;
+        }
+        // var tip = calTip(bill);
+        // console.log(`Task1: The bill was ${bill}, the tip was ${tip}, and the total value ${bill+tip}`)
+
+
+
+        console.log("Task1:")
+        var bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86 ,52];
+        console.log("Bills: "+bills)
+        var tips =[];
+        for( i = 0 ; i < bills.length ;i++) {
+            tips[i] = calTip(bills[i]);
+        }
+        
+         console.log("Tips: "+tips)
+        var totals = [];
+        for( i = 0 ; i < bills.length ;i++) {
+            totals[i] = bills[i]+tips[i];
+        }
+         console.log("Totals: "+totals)
+        //  }
+        
+    </script>
+</body>
