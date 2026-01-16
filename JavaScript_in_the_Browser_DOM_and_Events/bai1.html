@@ -1,0 +1,49 @@
+<body>
+    <div style="display: grid; place-items: center;">
+        <h1>Start guessing my secret number</h1>
+        <div style="text-align: center">
+            <h2 id="secretNumber" style="width: 15rem">?</h2>
+        </div>
+        <input type="text" value="0" id="number" />
+        <h2 id="score">Score:0</h2>
+        <div style="margin-top: 2rem">
+            <button id="guess">Guess</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        var guess = document.getElementById("guess");
+        var seNum = document.getElementById("secretNumber");
+        var secretNumber = 15;
+        var input = document.getElementById("number")
+        var keepScore = document.getElementById("score");
+        guess.onclick = () => {
+            var score = 0;
+            let number = input.value;
+            if (number == secretNumber) {
+
+                seNum.innerHTML = number;
+                document.body.style.backgroundColor = "greenyellow";
+                seNum.style.width = "30rem";
+                setTimeout(() => {
+                    alert('You guess right');
+                }, 0)
+                score += 10;
+                keepScore.innerHTML = `${score}`
+            } else {
+                document.body.style.backgroundColor = "red";
+                setTimeout(() => {
+                    alert('Wrong number');
+                }, 0)
+            }
+        };
+        var reset = document.getElementById("reset")
+        reset.onclick = () => {
+            document.body.style.backgroundColor = "white";
+            seNum.innerHTML = '?';
+            seNum.style.width = "30rem";
+            input.value = ""
+        }
+    </script>
+</body>

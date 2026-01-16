@@ -1,21 +1,21 @@
 <body>
     <script>
-        var Data1= [17, 21, 23]
-        var Data2= [12, 5, -5, 0, 4]
+        var Data1 = [17, 21, 23]
+        var Data2 = [12, 5, -5, 0, 4]
 
-        console.log("Data1: "+Data1)
-        console.log("Data2: "+Data2)
+        console.log("Data1: " + Data1)
+        console.log("Data2: " + Data2)
 
-        var printForecast = (array) =>{
+        var printForecast = (array) => {
             var result = "";
-            for(i = 1; i <= array.length; i++) {
-                result+=`... ${array[i-1]}°C in ${i} days `
+            for (i = 1; i <= array.length; i++) {
+                result += `... ${array[i - 1]}°C in ${i} days `
             }
-            return result+="...";
+            return result += "...";
         }
         var a = printForecast(Data1);
         var b = printForecast(Data2);
-        console.log("Forecast data1: "+a);
-        console.log("Forecast data2: "+b);
+        console.log("Forecast data1: " + a);
+        console.log("Forecast data2: " + b);
     </script>
 </body>
