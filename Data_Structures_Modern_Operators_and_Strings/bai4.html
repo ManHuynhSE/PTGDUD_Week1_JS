@@ -1,0 +1,24 @@
+<body>
+    <script>
+
+        const textarea = document.createElement('textarea');
+        document.body.append(textarea);
+
+        const button = document.createElement('button');
+        button.textContent = 'Click me';
+        document.body.append(button);
+
+        button.onclick = () => {
+            var texts = textarea.value.split("\n")
+            for (i = 0; i < texts.length; i++) {
+                var string = texts[i].trim().split('_')
+                var camelCase = string[0] + string[1].charAt(0).toUpperCase() + string[1].slice(1);
+
+                console.log(`${camelCase.padEnd(20)} ${'✅'.repeat(i + 1)}`);
+            }
+
+
+        }
+
+    </script>
+</body>

@@ -1,0 +1,40 @@
+<body>
+    <script>
+        const gameEvents = new Map([
+            [17, '⚽ GOAL'],
+            [36, '🔁 Substitution'],
+            [47, '⚽ GOAL'],
+            [61, '🔁 Substitution'],
+            [64, '🔶 Yellow card'],
+            [69, '🔴 Red card'],
+            [70, '🔁 Substitution'],
+            [72, '🔁 Substitution'],
+            [76, '⚽ GOAL'],
+            [80, '⚽ GOAL'],
+            [92, '🔶 Yellow card'],
+        ]);
+        console.log(gameEvents);
+
+        var events = []
+        gameEvents.forEach((value, key) => {
+            if (!events.includes(value)) {
+                events.push(value)
+            }
+        })
+        console.log(`1 event that happened: ${events}`);
+        console.log("2 game event after delete key 64 : ");
+        gameEvents.delete(64)
+        console.log(gameEvents);
+
+        const avgEventTime = 90 / gameEvents.size;
+        console.log(`3 An event happened on average, every ${Math.round(avgEventTime)} minutes`);
+        console.log("4");
+
+        gameEvents.forEach((value, key) => {
+            var time = key <= 45 ? 'FIRST HALF' : 'SECOND HALF'
+            console.log(`[${time}]${key}: ${value}`);
+
+        })
+
+    </script>
+</body>
