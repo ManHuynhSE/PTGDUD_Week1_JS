@@ -1,0 +1,33 @@
+<body>
+    <script>
+
+        var dogAge = [5, 2, 4, 1, 15, 8, 3]
+        dogAge.filter(value => {
+            return value < 5
+        })
+        function calcAverageHumanAge(ages) {
+            var humanAge = [];
+            console.log("dog age: " + ages);
+
+            for (i = 0; i < ages.length; i++) {
+                ages[i] = ages[i] <= 2 ? 2 * ages[i] : 16 + ages[i] * 4
+            }
+            console.log("1.dog in human age: " + ages);
+
+            ages = ages.filter(value => {
+                return value > 18
+            })
+            console.log("2. exclude all age that < 18: " + ages);
+
+            var avg = 0;
+            for (value of ages) {
+                avg += value;
+            }
+            avg = avg / ages.length;
+            console.log("3. Average of dog in human age: " + avg);
+
+        }
+
+        calcAverageHumanAge(dogAge)
+    </script>
+</body>

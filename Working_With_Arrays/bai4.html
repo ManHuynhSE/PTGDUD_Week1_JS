@@ -1,0 +1,104 @@
+<body>
+    <script>
+        const dogs = [
+            { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+            { weight: 8, curFood: 200, owners: ['Matilda'] },
+            { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+            { weight: 32, curFood: 340, owners: ['Michael'] },
+        ];
+
+        console.log("1.Add recommendFood to dogs:");
+
+        dogs.sort()
+
+        for (i = 0; i < dogs.length; i++) {
+            let recommendedFood = dogs[i].weight ** 0.75 * 28.
+            dogs[i].recommendedFood = recommendedFood
+            console.log(dogs[i]);
+        }
+
+        console.log("2. Find Sarah's dog and find out if it eat to much:");
+
+        const sarahDog = dogs.find((value) => {
+            return value.owners.includes('Sarah');
+        })
+        console.log(sarahDog);
+        const isItEatingToMuch = Math.round((sarahDog.curFood / sarahDog.recommendedFood) * 100) > 110 ? "It is eating to much!!" : "Is is eating to little"
+        console.log(Math.round((sarahDog.curFood / sarahDog.recommendedFood) * 100));
+        console.log(isItEatingToMuch);
+
+        // 3. Create an array containing all owners of dogs who eat too much
+        // ('ownersEatTooMuch') and an array with all owners of dogs who eat too little
+        // ('ownersEatTooLittle').
+
+        console.log("3. Create array ownersEatTooMuch and ownersEatTooLittle  ");
+
+        var ownersEatTooMuch = dogs.filter((value) => {
+            return value.curFood > (value.recommendedFood * 1.10)
+        }).flatMap(value => {
+            return value.owners
+        })
+
+        console.log("Owners of eat too much: " + ownersEatTooMuch);
+
+        var ownersEatTooLittle = dogs.filter((value) => {
+            return value.curFood < (value.recommendedFood * 0.9)
+        }).flatMap(value => {
+            return value.owners
+        })
+
+        console.log("Owners of eat too little: " + ownersEatTooLittle);
+
+        console.log("4. console with format ");
+
+        var logTooMuch = "";
+        var logTooLittle = ""
+        for (i = 0; i < ownersEatTooMuch.length - 1; i++) {
+            logTooMuch += `${ownersEatTooMuch[i]} and `
+        }
+        logTooMuch += `${ownersEatTooMuch[ownersEatTooMuch.length - 1]} dogs eat too much!`
+
+        console.log(logTooMuch);
+
+        for (i = 0; i < ownersEatTooLittle.length - 1; i++) {
+            logTooLittle += `${ownersEatTooLittle[i]} and `
+        }
+        logTooLittle += `${ownersEatTooLittle[ownersEatTooLittle.length - 1]} dogs eat too little!`
+
+        console.log(logTooLittle);
+
+        console.log("5.is there a that eat the exactly the amount of food that is recommended");
+
+        var exactly = dogs.some((value) => {
+            return value.curFood == value.recommendedFood
+        })
+
+        console.log(exactly);
+        console.log("6.is thereis any dog eating an okay amount of food (just true or false)");
+        var okay = dogs.some((value) => {
+            return value.curFood > (value.recommendedFood * 0.9) && value.curFood < (value.recommendedFood * 1.10)
+        })
+
+        console.log(okay);
+
+        console.log("7.Array of dog eating an okay amount of food ");
+
+        var dogEatOkay = dogs.filter((value) => {
+            return value.curFood > (value.recommendedFood * 0.9) && value.curFood < (value.recommendedFood * 1.10)
+        }).flat()
+
+        dogEatOkay.forEach((value) => {
+            console.log(value);
+
+        })
+
+        console.log("8.sort by recommend portion: ");
+
+        const sortedDogs = dogs.slice().sort((a, b) => a.recommendedFood - b.recommendedFood)
+
+        sortedDogs.forEach((value) => {
+            console.log(value);
+        })
+
+    </script>
+</body>

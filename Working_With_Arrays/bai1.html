@@ -1,0 +1,36 @@
+<body>
+    <script>
+
+        var dogsJulia = [3, 5, 2, 12, 7]
+        var dogsKate = [4, 1, 15, 8, 3]
+
+
+        function checkDogs(dogsJulia, dogsKate) {
+            var dogsJuliaCopy = dogsJulia.slice()
+            dogsJuliaCopy.shift()
+            dogsJuliaCopy.pop()
+            dogsJuliaCopy.pop()
+
+            console.log("1.dogsJulia after remove the cat: " + dogsJuliaCopy);
+
+            var correctData = [...dogsJuliaCopy, ...dogsKate]
+            console.log("2.All the data from both: " + correctData);
+
+            //adult ("Dog number 1
+            // is an adult, and is 5 years old") or a puppy ("Dog number 2 is still a puppy
+            // 🐶
+            // ")
+
+            console.log("3.");
+
+
+            for (i = 1; i <= correctData.length; i++) {
+                var age = correctData[i - 1];
+                if (age >= 3) console.log(`Dog number ${i} is an adult, and is ${age} years old`);
+                else console.log(`Dog number ${i} is still a puppy 🐶 `);
+            }
+        }
+
+        checkDogs(dogsJulia, dogsKate)
+    </script>
+</body>

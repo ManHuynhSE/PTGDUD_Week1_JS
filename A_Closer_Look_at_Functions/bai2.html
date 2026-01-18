@@ -1,0 +1,15 @@
+<body>
+    <h1>Hihi</h1>
+    <script>
+        (function () {
+            const header = document.querySelector('h1');
+            header.style.color = 'red';
+            const body = document.querySelector('body')
+            body.onclick = () => {
+                header.style.color = 'blue';
+            }
+        })();
+        console.log("explain:Callback function tạo ra closure, nên dù function cha đã chạy xong, nó vẫn nhớ và truy cập được biến header. Khi click xảy ra sau này, callback dùng lại biến đó mà không cần query DOM lần nữa.");
+
+    </script>
+</body>

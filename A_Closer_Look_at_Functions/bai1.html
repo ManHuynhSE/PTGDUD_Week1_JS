@@ -1,0 +1,42 @@
+<body>
+    <Button id="answerPoll">Answer poll</Button>
+
+    <script>
+        const poll = {
+            question: "What is your favourite programming language?",
+            options: ["0: JavaScript", "1: Python", "2: Rust", "3:C++"],
+            answers: new Array(4).fill(0),
+            registerNewAnswer() {
+                var answer = prompt("What is your favourite programming language?\n 0: JavaScript\n 1: Python\n 2: Rust\n 3: C++\n (Write option number)")
+                let num = parseInt(answer);
+                if (num < 0 || num > 3) {
+                    alert("Answer must from 0-3");
+                    poll.registerNewAnswer();
+
+                }
+                else {
+                    poll.answers[parseInt(answer)]++;
+                    // console.log(poll.answers);
+                    poll.displayResults();
+                }
+            },
+            displayResults(type = "string") {
+                if (type == "string") {
+                    console.log(`Poll results ${poll.answers}`);
+                }
+                else if (type == "array") {
+                    console.log(poll.answers);
+                }
+                else {
+                    console.log("parameter must be string or an array ");
+                }
+            }
+        };
+
+        var answerPoll = document.getElementById("answerPoll");
+        answerPoll.onclick = () => {
+            poll.registerNewAnswer()
+        }
+
+    </script>
+</body>

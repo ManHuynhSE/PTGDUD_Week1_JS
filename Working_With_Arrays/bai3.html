@@ -1,0 +1,21 @@
+<body>
+    <script>
+
+        var dogAge = [5, 2, 4, 1, 15, 8, 3]
+        console.log(dogAge);
+
+        const calcAverageHumanAge = (ages) => {
+            var humanAge = [];
+            const avg = ages.map((age) => {
+                return age <= 2 ? age * 2 : age * 4 + 16;
+            }).filter(age => {
+                return age > 18
+            }).reduce((acc, curr, _, arr) => {
+                return acc + curr / arr.length
+            }, 0)
+            console.log("The average age using chaining method of array: " + avg);
+        }
+
+        calcAverageHumanAge(dogAge)
+    </script>
+</body>
