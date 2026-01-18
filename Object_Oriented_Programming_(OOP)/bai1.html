@@ -1,0 +1,38 @@
+<body>
+    <script>
+        const Car = function (make, speed) {
+            this.make = make;
+            this.speed = speed;
+        }
+
+        Car.prototype.accelerate = function () {
+            this.speed += 10;
+            console.log(this.speed);
+        }
+
+        Car.prototype.brake = function () {
+            this.speed += 5;
+            console.log(this.speed);
+        }
+
+
+        var car1 = new Car("BMW", 120);
+        console.log(car1);
+        console.log("acc");
+        car1.accelerate();
+        console.log("acc");
+        car1.accelerate();
+        console.log("brake");
+        car1.brake()
+
+
+        var car2 = new Car("Mercedes", 95);
+        console.log(car2);
+        console.log("acc");
+        car2.accelerate();
+        console.log("acc");
+        car2.accelerate();
+        console.log("brake");
+        car2.brake()
+    </script>
+</body>

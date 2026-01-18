@@ -1,0 +1,38 @@
+<body>
+
+    <script>
+        class CarCl {
+            constructor(make, speed) {
+                this.make = make
+                this.speed = speed
+            }
+
+            accelerate() {
+                this.speed += 10;
+                console.log(this.speed);
+            }
+            brake() {
+                this.speed -= 5;
+                console.log(this.speed);
+            }
+
+            get speedUS() {
+                return this.speed / 1.6
+            }
+            set speedUS(speedIn) {
+                this.speed = speedIn / 1.6
+            }
+
+        }
+        var car = new CarCl("Ford", 120);
+        console.log(car);
+        car.accelerate();
+        car.accelerate();
+        car.brake()
+        console.log("Get: " + car.speedUS);
+        car.speedUS = 180
+        console.log("after Set 180: " + car.speed);
+
+
+    </script>
+</body>

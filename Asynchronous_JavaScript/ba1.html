@@ -1,0 +1,28 @@
+<body>
+    <script>
+        function whereAmI(lat, lng) {
+            fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+                .then(response => {
+                    if (!response.ok) {
+                        console.log(response.status);
+                    }
+                    return response.json();
+                })
+                .then(
+                    data => {
+                        console.log(data);
+                        if (!data.city || !data.country) {
+                            console.log("invalid");
+                        }
+
+                        console.log(`You are in ${data.city}, ${data.country}`);
+                    })
+                .catch(err => {
+                    console.error(` ${err.message}`);
+                })
+        }
+        console.log("Log the city");
+
+        whereAmI(52.508, 13.381);
+    </script>
+</body>
